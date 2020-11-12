@@ -13,5 +13,13 @@
   ],
   "homepage": "https://git.io/nttt",
   "repository": "github:oddoid/nttt",
-  "bugs": "https://github.com/oddoid/nttt/issues"
+  "bugs": "https://github.com/oddoid/nttt/issues",
+  "scripts": {
+    "test": "npm -s run formatter -- -l",
+    "format": "npm -s run formatter -- -w",
+    "formatter": "prettier --loglevel warn './**/*.{json,md,ts}'"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  }
 }
