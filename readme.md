@@ -14,6 +14,12 @@
 
 <!-- /code_chunk_output -->
 
+## Installation and version history
+
+[todo] installation.
+
+See the [changelog](changelog.md) for release notes.
+
 ## References
 
 - [Tic-Tac-Toe at Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe)
