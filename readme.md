@@ -1,5 +1,19 @@
 # t-t-t
 
+## Table of Contents
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [Table of Contents](#table-of-contents)
+- [Installation and version history](#installation-and-version-history)
+- [References](#references)
+- [License](#license)
+  - [GPL-3.0-only](#gpl-30-only)
+
+<!-- /code_chunk_output -->
+
 ## License
 
 © Stephen Niedzielski.
