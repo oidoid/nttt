@@ -14,6 +14,11 @@
 
 <!-- /code_chunk_output -->
 
+## References
+
+- [Tic-Tac-Toe at Wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe)
+- [m,n,k-game](https://en.wikipedia.org/wiki/M,n,k-game)
+
 ## License
 
 © Stephen Niedzielski.
