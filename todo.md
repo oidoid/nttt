@@ -1,0 +1,4 @@
+- Add usage example.
+- Add auto-play / next move API.
+- Consider exposing an `openCells()` API for implementing random move.
+- Add WebGL example.

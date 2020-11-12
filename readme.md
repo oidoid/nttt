@@ -10,6 +10,7 @@ n² Tic-Tac-Toe.
 
 - [Table of Contents](#table-of-contents)
 - [Installation and version history](#installation-and-version-history)
+- [To-Do](#to-dotodomd)
 - [References](#references)
 - [License](#license)
   - [GPL-3.0-only](#gpl-30-only)
@@ -25,6 +26,8 @@ npm i --save-prefix= nttt
 ```
 
 See the [changelog](changelog.md) for release notes.
+
+## [To-Do](todo.md)
 
 ## References
 
