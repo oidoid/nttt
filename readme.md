@@ -1,4 +1,6 @@
-# t-t-t
+# nttt
+
+n² Tic-Tac-Toe.
 
 ## Table of Contents
 
@@ -19,7 +21,7 @@
 Install the library:
 
 ```bash
-npm i --save-prefix= t-t-t
+npm i --save-prefix= nttt
 ```
 
 See the [changelog](changelog.md) for release notes.

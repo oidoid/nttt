@@ -1,5 +1,5 @@
 {
-  "name": "t-t-t",
+  "name": "nttt",
   "author": "oddoid",
   "version": "0.0.0",
   "license": "GPL-3.0-only",
@@ -11,7 +11,7 @@
     "tick-tack-toe",
     "game"
   ],
-  "homepage": "https://git.io/t-t-t",
-  "repository": "github:oddoid/t-t-t",
-  "bugs": "https://github.com/oddoid/t-t-t/issues"
+  "homepage": "https://git.io/nttt",
+  "repository": "github:oddoid/nttt",
+  "bugs": "https://github.com/oddoid/nttt/issues"
 }
