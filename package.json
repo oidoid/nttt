@@ -1,0 +1,17 @@
+{
+  "name": "t-t-t",
+  "author": "oddoid",
+  "version": "0.0.0",
+  "license": "GPL-3.0-only",
+  "description": "n² Tic-Tac-Toe.",
+  "keywords": [
+    "tic-tac-toe",
+    "xs and os",
+    "noughts and crosses",
+    "tick-tack-toe",
+    "game"
+  ],
+  "homepage": "https://git.io/t-t-t",
+  "repository": "github:oddoid/t-t-t",
+  "bugs": "https://github.com/oddoid/t-t-t/issues"
+}

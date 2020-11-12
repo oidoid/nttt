@@ -16,7 +16,11 @@
 
 ## Installation and version history
 
-[todo] installation.
+Install the library:
+
+```bash
+npm i --save-prefix= t-t-t
+```
 
 See the [changelog](changelog.md) for release notes.
 
