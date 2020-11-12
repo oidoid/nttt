@@ -1,4 +1,4 @@
-# nttt
+# \# [nttt](https://git.io/ntoes)
 
 n² Tic-Tac-Toe.
 
