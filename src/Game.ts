@@ -51,9 +51,11 @@ export namespace Game {
 
   /**
    * Place the current `Token` on the `Cell` at `Board[y][x]` and update the
-   * turn. An error is thrown for invalid or out-of-bounds `x` and
-   * `y`-coordinates, when the game has already concluded, or when the `Cell` is
-   * occupied.
+   * turn.
+   *
+   * @throws An `Error` is thrown for invalid or out-of-bounds `x` and
+   *  `y`-coordinates, when the game has already concluded, or when the `Cell`
+   *  is occupied.
    */
   export function mark(game: Game, x: number, y: number): void {
     if (game.board[y]?.[x] !== '?') throw new Error('Cell occupied.')

@@ -14,15 +14,19 @@ export namespace Board {
     // Incomplete.
     | Empty
 
-  /** Create a new `Board` with sides of `size` `Cell`s in length. */
+  /**
+   * Create a new `Board` with sides of `size` `Cell`s in length.
+   * @arg size An integer in the domain [0, +∞).
+   * @throws An `Error` is thrown for negative sizes.
+   */
   export function make(size: number = 3): Board {
     if (size < 0) throw new Error('Nonnegative size required.')
     return makeSide(size).map(() => makeSide(size))
   }
 
   /**
-   * Convert a DSL string to a `Board`. Whitespace is stripped. Throws an error
-   * on invalid inputs.
+   * Convert a domain-specific language string to a `Board`. Whitespace is
+   * stripped.
    *
    * For example, the following string input:
    *
@@ -43,6 +47,8 @@ export namespace Board {
    * ```
    *
    * Not the inverse of `toString()`.
+   *
+   * @throws An `Error` is thrown for invalid DSL that cannot be parsed.
    */
   export function parseDSL(dsl: string): readonly Cell[][] {
     const cells = dsl.replace(/\s/g, '').split('').map(Cell.parseDSL)
@@ -130,9 +136,11 @@ export namespace Board {
   }
 
   /**
-   * Place a `Token` or `Empty` on the `Cell` at `Board[y][x]`. An error is
-   * thrown for invalid or out-of-bounds `x` and `y`-coordinates.
-   * zero-based position on the `Board` relative to the upper-left
+   * Place a `Token` or `Empty` on the `Cell` at `Board[y][x]`. `x` and `y` are
+   * positions in the domain [0, size) relative to the `Board`'s upper-left.
+   *
+   * @throws An `Error` is thrown for invalid or out-of-bounds `x` and
+   *  `y`-coordinates.
    */
   export function mark(board: Board, cell: Cell, x: number, y: number): void {
     const size = board.length
@@ -180,7 +188,10 @@ export namespace Board {
     return top + middle + bottom
   }
 
-  /** Create a new `Board` side initialized to `Empty`. */
+  /**
+   * Create a new `Board` side initialized to `Empty`.
+   * @arg size An integer in the domain [0, +∞).
+   */
   function makeSide(size: number): Empty[] {
     return Array<Empty>(size).fill('?')
   }

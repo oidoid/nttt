@@ -6,10 +6,13 @@ export namespace Cell {
   export const values = <const>['x', 'o', '?']
 
   /**
-   * Convert a DSL string to a `Cell`. Whitespace is stripped. Throws an error
-   * on invalid inputs (empty or invalid character).
+   * Convert a domain-specific language string to a `Cell`. Whitespace is
+   * stripped.
    *
    * Not the inverse of `toString`.
+   *
+   * @throws An `Error` is thrown for invalid DSL (empty or invalid character)
+   *  that cannot be parsed.
    */
   export function parseDSL(dsl: string): Cell {
     const trimmed = dsl.trim()
