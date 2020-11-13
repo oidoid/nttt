@@ -11,7 +11,7 @@
     "tick-tack-toe",
     "game"
   ],
-  "homepage": "https://git.io/nttt",
+  "homepage": "https://git.io/ntoes",
   "repository": "github:oddoid/nttt",
   "bugs": "https://github.com/oddoid/nttt/issues",
   "main": "dist/index.js",
