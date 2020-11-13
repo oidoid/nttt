@@ -10,6 +10,11 @@ n² Tic-Tac-Toe.
 
 - [Table of Contents](#table-of-contents)
 - [Installation and version history](#installation-and-version-history)
+- [Usage](#usage)
+  - [Example](#example)
+- [Rules](#rules)
+  - [Objective](#objective)
+  - [Rules](#rules-1)
 - [To-Do](#to-dotodomd)
 - [References](#references)
 - [License](#license)
@@ -26,6 +31,36 @@ npm i --save-prefix= nttt
 ```
 
 See the [changelog](changelog.md) for release notes.
+
+## Usage
+
+### Example
+
+```ts
+const game = TicTacToe.Game.make('x')
+TicTacToe.Game.mark(game, 1, 1)
+console.log(TicTacToe.Board.toString(game.board))
+//    ╷   ╷
+//    │   │
+// ───┼───┼───
+//    │ x │
+// ───┼───┼───
+//    │   │
+//    ╵   ╵
+```
+
+## Rules
+
+A game for two. Each player is assigned a unique token, x's or o's.
+
+### Objective
+
+A player wins by marking a full row, column, or diagonal with their token. If
+all cells on the board are filled without a winner, it is a cat's game or draw.
+
+### Rules
+
+Players take turns marking cells with token until the game concludes.
 
 ## [To-Do](todo.md)
 
