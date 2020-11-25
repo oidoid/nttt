@@ -63,10 +63,9 @@ export namespace Board {
    * possibly mixed `State`s in a row, column, or `Board`. The operation is
    * commutative (orderless).
    */
-  const aggregateState: Readonly<Record<
-    State,
-    Readonly<Record<State, State>>
-  >> = {
+  const aggregateState: Readonly<
+    Record<State, Readonly<Record<State, State>>>
+  > = {
     x: {x: 'x', o: 'xo', xo: 'xo', '?': '?'},
     o: {x: 'xo', o: 'o', xo: 'xo', '?': '?'},
     xo: {x: 'xo', o: 'xo', xo: 'xo', '?': '?'},
