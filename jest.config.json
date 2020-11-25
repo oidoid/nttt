@@ -5,6 +5,11 @@
   "coverageDirectory": "dist/coverage",
   "errorOnDeprecated": true,
   "coverageThreshold": {
-    "global": {"branches": 94, "functions": 88, "lines": 100}
+    "global": {
+      "statements": "99",
+      "branches": 94,
+      "functions": 88,
+      "lines": 100
+    }
   }
 }
