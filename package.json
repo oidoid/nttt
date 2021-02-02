@@ -1,6 +1,6 @@
 {
   "name": "nttt",
-  "author": "oddoid",
+  "author": "oidoid",
   "version": "0.0.0",
   "license": "GPL-3.0-only",
   "description": "n² Tic-Tac-Toe.",
@@ -12,8 +12,8 @@
     "game"
   ],
   "homepage": "https://git.io/ntoes",
-  "repository": "github:oddoid/nttt",
-  "bugs": "https://github.com/oddoid/nttt/issues",
+  "repository": "github:oidoid/nttt",
+  "bugs": "https://github.com/oidoid/nttt/issues",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
