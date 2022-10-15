@@ -1,0 +1,36 @@
+# To-do
+
+- Top level api is either a loop, maybe that's the example, or a state machine with next transition that takes dependencies just like ne. Not sure about atlas
+- Rename xoxon.
+- Finish API.
+- Add Game test coverage and JSDocs.
+- Add usage example and cut release.
+- Add auto-play / next move API.
+- Consider exposing an `openCells()` API for implementing random move.
+- Add WebGL example.
+- Review Wikipedia articles in references.
+- Review https://en.wikipedia.org/wiki/OXO
+- Review https://en.wikipedia.org/wiki/Harary%27s_generalized_tic-tac-toe
+- Compare to aseprite-atlas, klondike-solitaire, etc.
+- Add rules to readme.
+- Link stuff on oidoid.com
+- New name? IDK.
+- I really like how generalized this is: https://en.wikipedia.org/wiki/Square
+
+// walking diagonally and looking down and right might be cleaner. you know what your left state is and you know what your right state is.
+apps by oidoid chain links, simple, sell, ads online
+instant replay
+super simple UI like wii + old operating systems + modern cleanness
+Follow the path guarded by toads. reveal story by winning multiple timed games at once
+the imagination of computer science and science fiction
+game programming and sophistication might be firghtfully simple. expression is complex and layered though
+get back to pixeling, integrate build process for index.html in sister repo
+i am whatever i want to be
+
+```
+tttn`
+  xxx
+  xoo
+  xox
+`
+```

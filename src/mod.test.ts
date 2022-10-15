@@ -1,10 +1,14 @@
-/** API demonstration. */
-import * as TicTacToe from '.'
+import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
+import { NumberXY } from '../../liboid/src/mod.ts';
 
-test('3²', () => {
-  const game = TicTacToe.Game.make('x')
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
-  expect(TicTacToe.Game.getSize(game)).toStrictEqual(3)
+/** API demonstration. */
+import * as TicTacToe from './mod.ts';
+
+// to-do: switch to inline snapshot tests.
+Deno.test('3²', () => {
+  const game = TicTacToe.Game.make('x');
+  assertEquals(TicTacToe.Game.getState(game), '?');
+  assertEquals(TicTacToe.Game.getSize(game), 3);
   //    ╷   ╷
   //    │   │
   // ───┼───┼───
@@ -13,8 +17,8 @@ test('3²', () => {
   //    │   │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 1, 1)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 1, 1);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //    │   │
   // ───┼───┼───
@@ -23,8 +27,8 @@ test('3²', () => {
   //    │   │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 1, 0)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 1, 0);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //    │ o │
   // ───┼───┼───
@@ -33,8 +37,8 @@ test('3²', () => {
   //    │   │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 0, 0)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 0, 0);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │
   // ───┼───┼───
@@ -43,8 +47,8 @@ test('3²', () => {
   //    │   │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 0, 2)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 0, 2);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │
   // ───┼───┼───
@@ -53,8 +57,8 @@ test('3²', () => {
   //  o │   │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 2, 2)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('x')
+  TicTacToe.Game.mark(game, 2, 2);
+  assertEquals(TicTacToe.Game.getState(game), 'x');
   //    ╷   ╷
   //  x │ o │
   // ───┼───┼───
@@ -63,11 +67,11 @@ test('3²', () => {
   //  o │   │ x
   //    ╵   ╵
 
-  expect(() => TicTacToe.Game.mark(game, 0, 2)).toThrow()
+  assertThrows(() => TicTacToe.Game.mark(game, 0, 2));
 
-  const undone = TicTacToe.Game.undo(game)
-  expect(undone).toStrictEqual({x: 2, y: 2})
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  const undone = TicTacToe.Game.undo(game);
+  assertEquals(undone, NumberXY(2, 2));
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │
   // ───┼───┼───
@@ -76,8 +80,8 @@ test('3²', () => {
   //  o │   │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 1, 2)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?') //    ╷   ╷
+  TicTacToe.Game.mark(game, 1, 2);
+  assertEquals(TicTacToe.Game.getState(game), '?'); //    ╷   ╷
   //  x │ o │
   // ───┼───┼───
   //    │ x │
@@ -85,8 +89,8 @@ test('3²', () => {
   //  o │ x │
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 2, 2)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 2, 2);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │
   // ───┼───┼───
@@ -95,8 +99,8 @@ test('3²', () => {
   //  o │ x │ o
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 2, 0)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 2, 0);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │ x
   // ───┼───┼───
@@ -105,8 +109,8 @@ test('3²', () => {
   //  o │ x │ o
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 0, 1)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('?')
+  TicTacToe.Game.mark(game, 0, 1);
+  assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │ x
   // ───┼───┼───
@@ -115,8 +119,8 @@ test('3²', () => {
   //  o │ x │ o
   //    ╵   ╵
 
-  TicTacToe.Game.mark(game, 2, 1)
-  expect(TicTacToe.Game.getState(game)).toStrictEqual('xo')
+  TicTacToe.Game.mark(game, 2, 1);
+  assertEquals(TicTacToe.Game.getState(game), 'xo');
   //    ╷   ╷
   //  x │ o │ x
   // ───┼───┼───
@@ -124,4 +128,4 @@ test('3²', () => {
   // ───┼───┼───
   //  o │ x │ o
   //    ╵   ╵
-})
+});

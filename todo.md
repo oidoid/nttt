@@ -1,6 +1,0 @@
-- Finish API.
-- Add Game test coverage and JSDocs.
-- Add usage example and cut release.
-- Add auto-play / next move API.
-- Consider exposing an `openCells()` API for implementing random move.
-- Add WebGL example.

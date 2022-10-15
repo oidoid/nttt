@@ -1,52 +1,52 @@
-import {Board} from './Board'
-import {Token} from './Token'
-import {XY} from './XY'
+import { NumberXY } from '@/liboid';
+import { Board } from './Board.ts';
+import { Token } from './Token.ts';
 
 /** Everything needed  */
-export type Game = Readonly<{
+export interface Game {
   /**
    * The Tic-Tac-Toe `Board` state. For a three-by-three game, this looks like a
    * "#".
    */
-  board: Board
+  readonly board: Board;
   /** The `Token` awarded the first move. */
-  starting: Token
+  readonly starting: Token;
   /** The moves taken so far from first to last. */
-  history: Readonly<XY>[]
-}>
+  readonly history: Readonly<NumberXY>[];
+}
 
 export namespace Game {
   /**
    * Create a new `Game` with `Board` sides of `size` `Cell`s in length. The
    * `starts` `Token` takes the first move.
    */
-  export function make(starts: Token, size: number = 3): Game {
-    return {board: Board.make(size), starting: starts, history: []}
+  export function make(starts: Token, size = 3): Game {
+    return { board: Board.make(size), starting: starts, history: [] };
   }
 
   /** Reinitialize the `Game`. */
-  export function reset(game: Game): void {
-    for (const row of game.board) row.fill('?')
-    game.history.length = 0
+  export function reset(self: Game): void {
+    for (const row of self.board) row.fill('?');
+    self.history.length = 0;
   }
 
   /**
    * Returns the length of each side of the board in number of `Cells`, an
    * integer in the domain [0, +∞).
    */
-  export function getSize(game: Game): number {
-    return game.board.length
+  export function getSize(self: Game): number {
+    return self.board.length;
   }
 
-  export function getState(game: Game): Board.State {
-    return Board.getState(game.board)
+  export function getState(self: Game): Board.State {
+    return Board.getState(self.board);
   }
 
   // getCell / isOccupied
 
   /** Return the current playing piece's turn. */
-  export function getTurn(game: Game): Token {
-    return game.history.length & 1 ? Token.next[game.starting] : game.starting
+  export function getTurn(self: Game): Token {
+    return self.history.length & 1 ? Token.next[self.starting] : self.starting;
   }
 
   /**
@@ -57,16 +57,20 @@ export namespace Game {
    *  `y`-coordinates, when the game has already concluded, or when the `Cell`
    *  is occupied.
    */
-  export function mark(game: Game, x: number, y: number): void {
-    if (game.board[y]?.[x] !== '?') throw new Error('Cell occupied.')
-    if (Board.getState(game.board) !== '?') throw new Error('Game over.')
-    Board.mark(game.board, getTurn(game), x, y)
-    game.history.push({x, y})
+  export function mark(self: Game, x: number, y: number): void {
+    if (self.board[y]?.[x] != '?') throw Error('Cell occupied.');
+    if (Board.getState(self.board) != '?') throw Error('Game over.');
+    Board.mark(self.board, getTurn(self), x, y);
+    self.history.push(NumberXY(x, y));
   }
 
-  export function undo(game: Game): XY | undefined {
-    const position = game.history.pop()
-    if (position) Board.mark(game.board, '?', position.x, position.y)
-    return position
+  export function toString(self: Readonly<Game>): string {
+    return Board.toString(self.board);
+  }
+
+  export function undo(self: Game): NumberXY | undefined {
+    const position = self.history.pop();
+    if (position) Board.mark(self.board, '?', position.x, position.y);
+    return position;
   }
 }

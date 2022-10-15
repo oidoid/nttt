@@ -1,45 +1,24 @@
-# \# [nttt](https://git.io/ntoes)
+# \# nttt
 
 n² Tic-Tac-Toe.
 
-## Table of Contents
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=2 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-- [Table of Contents](#table-of-contents)
-- [Installation and version history](#installation-and-version-history)
-- [Usage](#usage)
-  - [Example](#example)
-- [Rules](#rules)
-  - [Objective](#objective)
-  - [Rules](#rules-1)
-- [To-Do](#to-dotodomd)
-- [References](#references)
-- [License](#license)
-  - [GPL-3.0-only](#gpl-30-only)
-
-<!-- /code_chunk_output -->
+Models and functions for playing **tic-tac-toe** on an n-by-n (n²) grid.
+Everything needed for managing game state.
 
 ## Installation and version history
 
-Install the library:
-
-```bash
-npm i --save-prefix= nttt
-```
-
-See the [changelog](changelog.md) for release notes.
+Add `https://deno.land/x/nttt/mod.ts` to your import modules. See the
+[changelog](changelog.md) for release notes.
 
 ## Usage
 
 ### Example
 
 ```ts
-const game = TicTacToe.Game.make('x')
-TicTacToe.Game.mark(game, 1, 1)
-console.log(TicTacToe.Board.toString(game.board))
+import * as nttt from 'https://deno.land/x/nttt/mod.ts';
+const game = nttt.Game.make('x');
+nttt.Game.mark(game, 1, 1);
+console.log(nttt.Game.toString(game));
 //    ╷   ╷
 //    │   │
 // ───┼───┼───
@@ -47,6 +26,12 @@ console.log(TicTacToe.Board.toString(game.board))
 // ───┼───┼───
 //    │   │
 //    ╵   ╵
+```
+
+Try the demo:
+
+```bash
+deno run https://deno.land/x/nttt/demo.ts
 ```
 
 ## Rules
@@ -62,7 +47,7 @@ all cells on the board are filled without a winner, it is a cat's game or draw.
 
 Players take turns marking cells with token until the game concludes.
 
-## [To-Do](todo.md)
+## [To-Do](to-do.text)
 
 ## References
 
@@ -71,17 +56,18 @@ Players take turns marking cells with token until the game concludes.
 
 ## License
 
-© Stephen Niedzielski.
+© oidoid.
 
-### GPL-3.0-only
+### AGPL-3.0-only
 
 This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, version 3.
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with
-this program. If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU Affero General Public License along
+with this program. If not, see <https://www.gnu.org/licenses/>.
