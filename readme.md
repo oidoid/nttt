@@ -5,10 +5,9 @@ n² Tic-Tac-Toe.
 Models and functions for playing **tic-tac-toe** on an n-by-n (n²) grid.
 Everything needed for managing game state.
 
-## Installation and version history
+## Installation
 
-Add `https://deno.land/x/nttt/mod.ts` to your import modules. See the
-[changelog](changelog.md) for release notes.
+Add `https://deno.land/x/nttt/mod.ts` to your import modules.
 
 ## Usage
 
