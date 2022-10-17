@@ -1,5 +1,5 @@
 import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
-import { NumberXY } from '../../liboid/src/mod.ts';
+import { NumberXY } from '@/oidlib';
 
 /** API demonstration. */
 import * as TicTacToe from './mod.ts';
