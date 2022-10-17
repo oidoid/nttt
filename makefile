@@ -1,3 +1,3 @@
-include ../liboid/makefile
+include ../oidlib/makefile
 
 repo := nttt

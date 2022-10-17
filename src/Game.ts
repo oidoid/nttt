@@ -1,4 +1,4 @@
-import { NumberXY } from '@/liboid';
+import { NumberXY } from '@/oidlib';
 import { Board } from './Board.ts';
 import { Token } from './Token.ts';
 
