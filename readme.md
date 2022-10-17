@@ -27,12 +27,6 @@ console.log(nttt.Game.toString(game));
 //    ╵   ╵
 ```
 
-Try the demo:
-
-```bash
-deno run https://deno.land/x/nttt/demo.ts
-```
-
 ## Rules
 
 A game for two. Each player is assigned a unique token, x's or o's.
@@ -46,7 +40,7 @@ all cells on the board are filled without a winner, it is a cat's game or draw.
 
 Players take turns marking cells with token until the game concludes.
 
-## [To-Do](to-do.text)
+## [To-do](to-do.text)
 
 ## References
 
