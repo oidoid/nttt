@@ -1,5 +1,5 @@
 import { assertEquals } from 'std/testing/asserts.ts';
-import { Game } from './Game.ts';
+import { Game } from '@/nttt';
 
 Deno.test('reset', () => {
   const game = Game.make('x');

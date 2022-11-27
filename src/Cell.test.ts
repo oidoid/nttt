@@ -1,5 +1,5 @@
 import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
-import { Cell } from './Cell.ts';
+import { Cell } from '@/nttt';
 
 Deno.test('parseDSL()', async (test) => {
   for (

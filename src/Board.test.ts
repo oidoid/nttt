@@ -1,5 +1,5 @@
 import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
-import { Board } from './Board.ts';
+import { Board } from '@/nttt';
 
 Deno.test('make()', async (test) => {
   for (

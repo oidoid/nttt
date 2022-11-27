@@ -1,5 +1,4 @@
-import { Cell } from './Cell.ts';
-import { Empty, Token } from './Token.ts';
+import { Cell, Empty, Token } from '@/nttt';
 
 /** An n² row-by-column grid of `Cell`s. */
 export type Board = readonly Cell[][];

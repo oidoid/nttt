@@ -27,6 +27,12 @@ console.log(nttt.Game.toString(game));
 //    ╵   ╵
 ```
 
+Try the demo:
+
+```bash
+deno run --import-map=https://deno.land/x/nttt/mods.json https://deno.land/x/nttt/src/demo.ts
+```
+
 ## Rules
 
 A game for two. Each player is assigned a unique token, x's or o's.

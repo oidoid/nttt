@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@/nttt": "mod.ts",
+    "@/nttt": "./mod.ts",
     "@/oidlib": "https://deno.land/x/oidlib@v0.0.3/mod.ts",
     "std/": "https://deno.land/std@0.159.0/"
   }

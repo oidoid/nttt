@@ -1,6 +1,5 @@
 import { NumberXY } from '@/oidlib';
-import { Board } from './Board.ts';
-import { Token } from './Token.ts';
+import { Board, Token } from '@/nttt';
 
 /** Everything needed  */
 export interface Game {
