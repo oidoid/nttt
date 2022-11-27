@@ -1,4 +1,5 @@
 import { Cell, Empty, Token } from '@/nttt';
+import { assert } from '@/oidlib';
 
 /** An n² row-by-column grid of `Cell`s. */
 export type Board = readonly Cell[][];
@@ -19,7 +20,7 @@ export namespace Board {
    * @throws An `Error` is thrown for negative sizes.
    */
   export function make(size = 3): Board {
-    if (size < 0) throw Error('Nonnegative size required.');
+    assert(size >= 0, 'Nonnegative size required.');
     return makeSide(size).map(() => makeSide(size));
   }
 
@@ -52,7 +53,7 @@ export namespace Board {
   export function parseDSL(dsl: string): readonly Cell[][] {
     const cells = dsl.replace(/\s/g, '').split('').map(Cell.parseDSL);
     const size = Math.sqrt(cells.length);
-    if (!Number.isInteger(size)) throw Error(`size=${size} is not an integer.`);
+    assert(Number.isInteger(size), `size=${size} is not an integer.`);
     return makeSide(size).map(() => cells.splice(0, size));
   }
 
@@ -142,12 +143,8 @@ export namespace Board {
    */
   export function mark(self: Board, cell: Cell, x: number, y: number): void {
     const size = self.length;
-    if (!(y in self)) {
-      throw Error(`y=${y} must be an integer less than size=${size}.`);
-    }
-    if (!(x in self[y]!)) {
-      throw Error(`x=${x} must be an integer less than size=${size}.`);
-    }
+    assert(y in self, `y=${y} must be an integer less than size=${size}.`);
+    assert(x in self[y]!, `x=${x} must be an integer less than size=${size}.`);
     self[y]![x] = cell;
   }
 
@@ -177,9 +174,9 @@ export namespace Board {
     if (!size) return '';
     if (size == 1) return Cell.toString[self[0]![0]!];
 
-    const top = `${'   ╷'.repeat(size - 1)}   \n`; // prettier-ignore
+    const top = `${'   ╷'.repeat(size - 1)}   \n`;
     const divider = `${'───┼'.repeat(size - 1)}───\n`;
-    const bottom = `${'   ╵'.repeat(size - 1)}   `; // prettier-ignore
+    const bottom = `${'   ╵'.repeat(size - 1)}   `;
 
     const middle = self
       .map((row) => `${row.map((cell) => Cell.toString[cell]).join('│')}\n`)

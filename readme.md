@@ -7,7 +7,9 @@ Everything needed for managing game state.
 
 ## Installation
 
-Add `https://deno.land/x/nttt/mod.ts` to your import modules.
+nttt is a Deno TypeScript project. Add `https://deno.land/x/nttt/mod.ts` to your
+import modules and reference the `https://deno.land/x/nttt/mods.json` import
+map.
 
 ## Usage
 
