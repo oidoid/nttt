@@ -1,5 +1,5 @@
+import { NumXY } from '@/oidlib';
 import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
-import { NumberXY } from '@/oidlib';
 
 /** API demonstration. */
 import * as TicTacToe from './mod.ts';
@@ -70,7 +70,7 @@ Deno.test('3²', () => {
   assertThrows(() => TicTacToe.Game.mark(game, 0, 2));
 
   const undone = TicTacToe.Game.undo(game);
-  assertEquals(undone, NumberXY(2, 2));
+  assertEquals(undone, new NumXY(2, 2));
   assertEquals(TicTacToe.Game.getState(game), '?');
   //    ╷   ╷
   //  x │ o │

@@ -1,5 +1,5 @@
-import { assert, NumberXY } from '@/oidlib';
 import { Board, Token } from '@/nttt';
+import { assert, NumXY } from '@/oidlib';
 
 /** Everything needed  */
 export interface Game {
@@ -11,7 +11,7 @@ export interface Game {
   /** The `Token` awarded the first move. */
   readonly starting: Token;
   /** The moves taken so far from first to last. */
-  readonly history: Readonly<NumberXY>[];
+  readonly history: Readonly<NumXY>[];
 }
 
 export namespace Game {
@@ -60,14 +60,14 @@ export namespace Game {
     assert(self.board[y]?.[x] == '?', 'Cell occupied.');
     assert(Board.getState(self.board) == '?', 'Game over.');
     Board.mark(self.board, getTurn(self), x, y);
-    self.history.push(NumberXY(x, y));
+    self.history.push(new NumXY(x, y));
   }
 
   export function toString(self: Readonly<Game>): string {
     return Board.toString(self.board);
   }
 
-  export function undo(self: Game): NumberXY | undefined {
+  export function undo(self: Game): Readonly<NumXY> | undefined {
     const position = self.history.pop();
     if (position) Board.mark(self.board, '?', position.x, position.y);
     return position;
