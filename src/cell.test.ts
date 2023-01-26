@@ -1,5 +1,5 @@
-import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
-import { Cell } from '@/nttt';
+import { assertEquals, assertThrows } from 'std/testing/asserts.ts'
+import { Cell } from '@/nttt'
 
 Deno.test('parseDSL()', async (test) => {
   for (
@@ -15,15 +15,15 @@ Deno.test('parseDSL()', async (test) => {
     await test.step(
       `"${dsl}".`,
       () => assertEquals(Cell.parseDSL(dsl), expected),
-    );
+    )
   }
 
   for (const [dsl] of [[''], ['X'], ['a']] as const) {
     await test.step(
       `"${dsl}".`,
       () => {
-        assertThrows(() => Cell.parseDSL(dsl));
+        assertThrows(() => Cell.parseDSL(dsl))
       },
-    );
+    )
   }
-});
+})

@@ -1,5 +1,5 @@
-import { assertEquals, assertThrows } from 'std/testing/asserts.ts';
-import { Board } from '@/nttt';
+import { assertEquals, assertThrows } from 'std/testing/asserts.ts'
+import { Board } from '@/nttt'
 
 Deno.test('make()', async (test) => {
   for (
@@ -36,13 +36,13 @@ Deno.test('make()', async (test) => {
     ] as const
   ) {
     await test.step(`make ${name}.`, () =>
-      assertEquals(Board.make(size), expected as Board));
+      assertEquals(Board.make(size), expected as Board))
   }
 
   await test.step('make invalid', () => {
-    assertThrows(() => Board.make(-1));
-  });
-});
+    assertThrows(() => Board.make(-1))
+  })
+})
 
 Deno.test('parseDSL()', async (test) => {
   for (
@@ -98,7 +98,7 @@ Deno.test('parseDSL()', async (test) => {
     ] as const
   ) {
     await test.step(`Parse ${name}.`, () =>
-      assertEquals(Board.parseDSL(board), expected as Board));
+      assertEquals(Board.parseDSL(board), expected as Board))
   }
 
   for (
@@ -108,10 +108,10 @@ Deno.test('parseDSL()', async (test) => {
     ] as const
   ) {
     await test.step(`Parse ${name}.`, () => {
-      assertThrows(() => Board.parseDSL(board));
-    });
+      assertThrows(() => Board.parseDSL(board))
+    })
   }
-});
+})
 
 Deno.test('getState()', async (test) => {
   for (
@@ -155,10 +155,10 @@ Deno.test('getState()', async (test) => {
     ] as const).entries()
   ) {
     await test.step(`Step ${index}.`, () =>
-      assertEquals(Board.getState(Board.parseDSL(board)), expected));
+      assertEquals(Board.getState(Board.parseDSL(board)), expected))
   }
 
-  await test.step('getState 0²', () => assertEquals(Board.getState([]), '?'));
+  await test.step('getState 0²', () => assertEquals(Board.getState([]), '?'))
 
   for (
     const [index, [board, expected]] of ([
@@ -213,7 +213,7 @@ Deno.test('getState()', async (test) => {
     ] as const).entries()
   ) {
     await test.step(`getState 3² win ${index}.`, () =>
-      assertEquals(Board.getState(Board.parseDSL(board)), expected));
+      assertEquals(Board.getState(Board.parseDSL(board)), expected))
   }
 
   for (
@@ -291,9 +291,9 @@ Deno.test('getState()', async (test) => {
     ] as const).entries()
   ) {
     await test.step(`getState 4² win ${index}.`, () =>
-      assertEquals(Board.getState(Board.parseDSL(board)), expected));
+      assertEquals(Board.getState(Board.parseDSL(board)), expected))
   }
-});
+})
 
 Deno.test('mark()', async (test) => {
   for (
@@ -337,10 +337,10 @@ Deno.test('mark()', async (test) => {
     ] as const
   ) {
     await test.step(`mark ${name}.`, () => {
-      const board = Board.parseDSL(boardDSL);
-      Board.mark(board, cell, x, y);
-      assertEquals(board, Board.parseDSL(expected));
-    });
+      const board = Board.parseDSL(boardDSL)
+      Board.mark(board, cell, x, y)
+      assertEquals(board, Board.parseDSL(expected))
+    })
   }
 
   for (
@@ -356,11 +356,11 @@ Deno.test('mark()', async (test) => {
     await test.step(
       `mark ${name},`,
       () => {
-        assertThrows(() => Board.mark(Board.make(), 'x', x, y));
+        assertThrows(() => Board.mark(Board.make(), 'x', x, y))
       },
-    );
+    )
   }
-});
+})
 
 Deno.test('toString()', async (test) => {
   for (
@@ -440,6 +440,6 @@ Deno.test('toString()', async (test) => {
     ] as const
   ) {
     await test.step(`toString ${name}.`, () =>
-      assertEquals(Board.toString(board), expected.join('\n')));
+      assertEquals(Board.toString(board), expected.join('\n')))
   }
-});
+})

@@ -1,5 +1,5 @@
-import { Board, Token } from '@/nttt';
-import { assert, NumXY } from '@/oidlib';
+import { Board, Token } from '@/nttt'
+import { assert, NumXY } from '@/oidlib'
 
 /** Everything needed  */
 export interface Game {
@@ -7,11 +7,11 @@ export interface Game {
    * The Tic-Tac-Toe `Board` state. For a three-by-three game, this looks like a
    * "#".
    */
-  readonly board: Board;
+  readonly board: Board
   /** The `Token` awarded the first move. */
-  readonly starting: Token;
+  readonly starting: Token
   /** The moves taken so far from first to last. */
-  readonly history: Readonly<NumXY>[];
+  readonly history: Readonly<NumXY>[]
 }
 
 export namespace Game {
@@ -20,13 +20,13 @@ export namespace Game {
    * `starts` `Token` takes the first move.
    */
   export function make(starts: Token, size = 3): Game {
-    return { board: Board.make(size), starting: starts, history: [] };
+    return { board: Board.make(size), starting: starts, history: [] }
   }
 
   /** Reinitialize the `Game`. */
   export function reset(self: Game): void {
-    for (const row of self.board) row.fill('?');
-    self.history.length = 0;
+    for (const row of self.board) row.fill('?')
+    self.history.length = 0
   }
 
   /**
@@ -34,18 +34,18 @@ export namespace Game {
    * integer in the domain [0, +∞).
    */
   export function getSize(self: Game): number {
-    return self.board.length;
+    return self.board.length
   }
 
   export function getState(self: Game): Board.State {
-    return Board.getState(self.board);
+    return Board.getState(self.board)
   }
 
   // getCell / isOccupied
 
   /** Return the current playing piece's turn. */
   export function getTurn(self: Game): Token {
-    return self.history.length & 1 ? Token.next[self.starting] : self.starting;
+    return self.history.length & 1 ? Token.next[self.starting] : self.starting
   }
 
   /**
@@ -57,19 +57,19 @@ export namespace Game {
    *  is occupied.
    */
   export function mark(self: Game, x: number, y: number): void {
-    assert(self.board[y]?.[x] == '?', 'Cell occupied.');
-    assert(Board.getState(self.board) == '?', 'Game over.');
-    Board.mark(self.board, getTurn(self), x, y);
-    self.history.push(new NumXY(x, y));
+    assert(self.board[y]?.[x] == '?', 'Cell occupied.')
+    assert(Board.getState(self.board) == '?', 'Game over.')
+    Board.mark(self.board, getTurn(self), x, y)
+    self.history.push(new NumXY(x, y))
   }
 
   export function toString(self: Readonly<Game>): string {
-    return Board.toString(self.board);
+    return Board.toString(self.board)
   }
 
   export function undo(self: Game): Readonly<NumXY> | undefined {
-    const position = self.history.pop();
-    if (position) Board.mark(self.board, '?', position.x, position.y);
-    return position;
+    const position = self.history.pop()
+    if (position) Board.mark(self.board, '?', position.x, position.y)
+    return position
   }
 }

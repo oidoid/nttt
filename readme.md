@@ -16,10 +16,10 @@ map.
 ### Example
 
 ```ts
-import * as nttt from 'https://deno.land/x/nttt/mod.ts';
-const game = nttt.Game.make('x');
-nttt.Game.mark(game, 1, 1);
-console.log(nttt.Game.toString(game));
+import * as nttt from 'https://deno.land/x/nttt/mod.ts'
+const game = nttt.Game.make('x')
+nttt.Game.mark(game, 1, 1)
+console.log(nttt.Game.toString(game))
 //    ╷   ╷
 //    │   │
 // ───┼───┼───
