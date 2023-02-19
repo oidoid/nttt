@@ -1,4 +1,4 @@
-import { NumXY } from '@/oidlib'
+import { NumXY } from '@/ooz'
 import { assertEquals, assertThrows } from 'std/testing/asserts.ts'
 
 /** API demonstration. */

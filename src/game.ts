@@ -1,5 +1,5 @@
 import { Board, Token } from '@/nttt'
-import { assert, NumXY } from '@/oidlib'
+import { assert, NumXY } from '@/ooz'
 
 /** Everything needed  */
 export interface Game {

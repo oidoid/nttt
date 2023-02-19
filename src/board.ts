@@ -1,5 +1,5 @@
 import { Cell, Empty, Token } from '@/nttt'
-import { assert } from '@/oidlib'
+import { assert } from '@/ooz'
 
 /** An n² row-by-column grid of `Cell`s. */
 export type Board = readonly Cell[][]
