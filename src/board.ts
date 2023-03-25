@@ -111,14 +111,14 @@ export namespace Board {
       }
 
       // Horizontal line test.
-      if (rowState == 'x' || rowState == 'o') return rowState
+      if (rowState === 'x' || rowState === 'o') return rowState
 
       boardState = aggregateState[boardState]![rowState]
     }
 
     // Vertical line test.
     for (const column of columnState) {
-      if (column == 'x' || column == 'o') return column
+      if (column === 'x' || column === 'o') return column
     }
 
     // Diagonal line test.
@@ -128,8 +128,8 @@ export namespace Board {
       forward = aggregateState[forward]![self[i]![i]!]
       backward = aggregateState[backward]![self[i]![size - 1 - i]!]
     }
-    if (forward == 'x' || forward == 'o') return forward
-    if (backward == 'x' || backward == 'o') return backward
+    if (forward === 'x' || forward === 'o') return forward
+    if (backward === 'x' || backward === 'o') return backward
 
     return boardState
   }
@@ -172,7 +172,7 @@ export namespace Board {
   export function toString(self: readonly (readonly Cell[])[]): string {
     const size = self.length
     if (!size) return ''
-    if (size == 1) return Cell.toString[self[0]![0]!]
+    if (size === 1) return Cell.toString[self[0]![0]!]
 
     const top = `${'   ╷'.repeat(size - 1)}   \n`
     const divider = `${'───┼'.repeat(size - 1)}───\n`

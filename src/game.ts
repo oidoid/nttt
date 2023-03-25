@@ -57,8 +57,8 @@ export namespace Game {
    *  is occupied.
    */
   export function mark(self: Game, x: number, y: number): void {
-    assert(self.board[y]?.[x] == '?', 'Cell occupied.')
-    assert(Board.getState(self.board) == '?', 'Game over.')
+    assert(self.board[y]?.[x] === '?', 'Cell occupied.')
+    assert(Board.getState(self.board) === '?', 'Game over.')
     Board.mark(self.board, getTurn(self), x, y)
     self.history.push(new NumXY(x, y))
   }
