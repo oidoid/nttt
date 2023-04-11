@@ -1,19 +1,19 @@
+import { Game, gameMark, gameReset } from '@/nttt'
 import { assertEquals } from 'std/testing/asserts.ts'
-import { Game } from '@/nttt'
 
 Deno.test('reset', () => {
-  const game = Game.make('x')
+  const game = Game('x')
 
-  Game.mark(game, 0, 0)
-  Game.mark(game, 1, 0)
-  Game.mark(game, 2, 0)
-  Game.mark(game, 0, 1)
-  Game.mark(game, 1, 1)
-  Game.mark(game, 2, 1)
-  Game.mark(game, 1, 2)
-  Game.mark(game, 0, 2)
-  Game.mark(game, 2, 2)
+  gameMark(game, 0, 0)
+  gameMark(game, 1, 0)
+  gameMark(game, 2, 0)
+  gameMark(game, 0, 1)
+  gameMark(game, 1, 1)
+  gameMark(game, 2, 1)
+  gameMark(game, 1, 2)
+  gameMark(game, 0, 2)
+  gameMark(game, 2, 2)
 
-  Game.reset(game)
-  assertEquals(game, Game.make('x'))
+  gameReset(game)
+  assertEquals(game, Game('x'))
 })

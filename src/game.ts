@@ -1,5 +1,13 @@
-import { Board, Token } from '@/nttt'
-import { assert, NumXY } from '@/ooz'
+import {
+  Board,
+  boardGetState,
+  boardMark,
+  BoardState,
+  boardToString,
+  nextToken,
+  Token,
+} from '@/nttt'
+import { assert, XY } from '@/ooz'
 
 /** Everything needed  */
 export interface Game {
@@ -11,65 +19,63 @@ export interface Game {
   /** The `Token` awarded the first move. */
   readonly starting: Token
   /** The moves taken so far from first to last. */
-  readonly history: Readonly<NumXY>[]
+  readonly history: Readonly<XY>[]
 }
 
-export namespace Game {
-  /**
-   * Create a new `Game` with `Board` sides of `size` `Cell`s in length. The
-   * `starts` `Token` takes the first move.
-   */
-  export function make(starts: Token, size = 3): Game {
-    return { board: Board.make(size), starting: starts, history: [] }
-  }
+/**
+ * Create a new `Game` with `Board` sides of `size` `Cell`s in length. The
+ * `starts` `Token` takes the first move.
+ */
+export function Game(starts: Token, size = 3): Game {
+  return { board: Board(size), starting: starts, history: [] }
+}
 
-  /** Reinitialize the `Game`. */
-  export function reset(self: Game): void {
-    for (const row of self.board) row.fill('?')
-    self.history.length = 0
-  }
+/** Reinitialize the `Game`. */
+export function gameReset(self: Game): void {
+  for (const row of self.board) row.fill('?')
+  self.history.length = 0
+}
 
-  /**
-   * Returns the length of each side of the board in number of `Cells`, an
-   * integer in the domain [0, +∞).
-   */
-  export function getSize(self: Game): number {
-    return self.board.length
-  }
+/**
+ * Returns the length of each side of the board in number of `Cells`, an
+ * integer in the domain [0, +∞).
+ */
+export function gameGetSize(self: Game): number {
+  return self.board.length
+}
 
-  export function getState(self: Game): Board.State {
-    return Board.getState(self.board)
-  }
+export function gameGetState(self: Game): BoardState {
+  return boardGetState(self.board)
+}
 
-  // getCell / isOccupied
+// getCell / isOccupied
 
-  /** Return the current playing piece's turn. */
-  export function getTurn(self: Game): Token {
-    return self.history.length & 1 ? Token.next[self.starting] : self.starting
-  }
+/** Return the current playing piece's turn. */
+export function gameGetTurn(self: Game): Token {
+  return self.history.length & 1 ? nextToken[self.starting] : self.starting
+}
 
-  /**
-   * Place the current `Token` on the `Cell` at `Board[y][x]` and update the
-   * turn.
-   *
-   * @throws An `Error` is thrown for invalid or out-of-bounds `x` and
-   *  `y`-coordinates, when the game has already concluded, or when the `Cell`
-   *  is occupied.
-   */
-  export function mark(self: Game, x: number, y: number): void {
-    assert(self.board[y]?.[x] === '?', 'Cell occupied.')
-    assert(Board.getState(self.board) === '?', 'Game over.')
-    Board.mark(self.board, getTurn(self), x, y)
-    self.history.push(new NumXY(x, y))
-  }
+/**
+ * Place the current `Token` on the `Cell` at `Board[y][x]` and update the
+ * turn.
+ *
+ * @throws An `Error` is thrown for invalid or out-of-bounds `x` and
+ *  `y`-coordinates, when the game has already concluded, or when the `Cell`
+ *  is occupied.
+ */
+export function gameMark(self: Game, x: number, y: number): void {
+  assert(self.board[y]?.[x] === '?', 'Cell occupied.')
+  assert(boardGetState(self.board) === '?', 'Game over.')
+  boardMark(self.board, gameGetTurn(self), x, y)
+  self.history.push(new XY(x, y))
+}
 
-  export function toString(self: Readonly<Game>): string {
-    return Board.toString(self.board)
-  }
+export function gameToString(self: Readonly<Game>): string {
+  return boardToString(self.board)
+}
 
-  export function undo(self: Game): Readonly<NumXY> | undefined {
-    const position = self.history.pop()
-    if (position) Board.mark(self.board, '?', position.x, position.y)
-    return position
-  }
+export function gameUndo(self: Game): Readonly<XY> | undefined {
+  const position = self.history.pop()
+  if (position) boardMark(self.board, '?', position.x, position.y)
+  return position
 }

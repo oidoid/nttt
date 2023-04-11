@@ -1,5 +1,5 @@
 import * as nttt from '@/nttt'
 
-const game = nttt.Game.make('x')
-nttt.Game.mark(game, 1, 1)
-console.log(nttt.Game.toString(game))
+const game = nttt.Game('x')
+nttt.gameMark(game, 1, 1)
+console.log(nttt.gameToString(game))
